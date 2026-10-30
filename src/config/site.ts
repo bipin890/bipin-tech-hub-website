@@ -18,7 +18,7 @@ export const siteConfig = {
   
   // WhatsApp Configuration (Primary Channel)
   // PLACEHOLDER: Replace with actual business WhatsApp number (Country code 977 for Nepal)
-  whatsappNumber: "977XXXXXXXXXX", 
+  whatsappNumber: "9779763647950", 
   
   // YouTube Configuration
   // PLACEHOLDER: Replace with actual YouTube channel URL
@@ -26,8 +26,8 @@ export const siteConfig = {
   
   // Email & Contact Details
   // PLACEHOLDER: Replace with actual contact email
-  email: "support@bipintechhub.com",
-  location: "Kathmandu, Nepal (Serving Clients Nationwide & Abroad)",
+  email: "bipintech@icloud.com",
+  location: "Lumbini Province-Dang, Nepal ",
   workingHours: "Sunday – Saturday: 7:00 AM – 9:00 PM (NPT)",
   
   // Payment Details (Manual Verification)
@@ -40,7 +40,7 @@ export const siteConfig = {
   
   // Social Links
   links: {
-    whatsapp: "https://wa.me/977XXXXXXXXXX",
+    whatsapp: "https://wa.me/9779763647950",
     youtube: "https://youtube.com/@bipintechhub",
     github: "https://github.com",
   },
