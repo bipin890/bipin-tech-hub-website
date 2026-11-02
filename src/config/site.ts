@@ -14,7 +14,7 @@ export const siteConfig = {
     "नेपालभर अनलाइन फारम, कागजात प्रमाणीकरण, युरोपास सिभि, प्रहरी रिपोर्ट कन्सुलर प्रमाणीकरण, लोकसेवा फारम र व्यक्तिगत वेबसाइट विकासको भरपर्दो माध्यम।",
   
   // Base URLs
-  url: "https://bipintechhub.com",
+  url: "https://bipinthapa.info.np",
   
   // WhatsApp Configuration (Primary Channel)
   // PLACEHOLDER: Replace with actual business WhatsApp number (Country code 977 for Nepal)
