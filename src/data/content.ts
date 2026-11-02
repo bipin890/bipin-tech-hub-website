@@ -30,6 +30,13 @@ export const navLinks: NavLink[] = [
     },
   },
   {
+    href: "/blog",
+    label: {
+      en: "Blog",
+      ne: "ब्लग",
+    },
+  },
+  {
     href: "/contact",
     label: {
       en: "Contact",

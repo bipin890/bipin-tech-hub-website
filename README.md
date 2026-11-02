@@ -170,6 +170,45 @@ Vercel is the creator of Next.js and provides instant, free global hosting with 
 
 ---
 
+## 📝 Blog & Admin Dashboard
+
+The blog is added as a static-friendly, browser-connected feature. GitHub Pages serves the Next.js exported frontend; Supabase provides the database, admin authentication, and public cover-image storage. No custom Node.js server is required for this setup.
+
+### Blog routes
+
+- `/blog/` — public article listing, category filters and search
+- `/blog/post/?slug=your-article-slug` — public article detail
+- `/admin/login/` — admin sign-in
+- `/admin/` — article dashboard
+- `/admin/posts/new/` — create article
+- `/admin/posts/edit/?id=POST_UUID` — edit article
+
+### Supabase setup
+
+1. Create a Supabase project.
+2. Open **SQL Editor** and run the complete script at `docs/supabase-blog-setup.sql`.
+3. In **Project Settings → API**, copy the Project URL and the publishable/anon key.
+4. Add these as GitHub Actions repository secrets (or the equivalent build environment variables):
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+5. In **Authentication → Users**, create your admin user. Turn off public sign-ups if you do not need public account creation.
+6. Copy that user's UUID and run this in SQL Editor:
+   `insert into public.blog_admins (user_id) values ('YOUR-AUTH-USER-UUID');`
+7. Rebuild and redeploy the site. Open `/admin/login/` and sign in.
+
+### Security notes
+
+- The frontend uses only the Supabase publishable/anon key. Never add a Supabase `service_role` key to a `NEXT_PUBLIC_*` variable or commit it to Git.
+- Row Level Security makes published posts public and restricts post/image management to user IDs explicitly listed in `public.blog_admins`.
+- Create admin accounts manually. Disable public sign-ups unless you intentionally need them.
+- Cover images are limited to JPG, PNG and WebP up to 5 MB.
+
+### Writing articles
+
+The first editor version supports plain text with line breaks, article title, slug, excerpt, category, tags, cover image and SEO title/description. Rich-text formatting can be added in a later iteration.
+
+---
+
 ## 📄 License & Attribution
 
 © 2026 **BIPIN TECH HUB**. All rights reserved.

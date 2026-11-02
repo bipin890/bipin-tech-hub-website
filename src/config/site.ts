@@ -12,24 +12,24 @@ export const siteConfig = {
     "Professional online form assistance, documentation, career documents, Europass CV, PCC consular stamp, and website development services in Nepal.",
   descriptionNepali:
     "नेपालभर अनलाइन फारम, कागजात प्रमाणीकरण, युरोपास सिभि, प्रहरी रिपोर्ट कन्सुलर प्रमाणीकरण, लोकसेवा फारम र व्यक्तिगत वेबसाइट विकासको भरपर्दो माध्यम।",
-  
-  // Base URLs
-  url: "https://bipintechhub.com",
-  
+
+  // Canonical production domain
+  url: "https://bipinthapa.info.np",
+
   // WhatsApp Configuration (Primary Channel)
   // PLACEHOLDER: Replace with actual business WhatsApp number (Country code 977 for Nepal)
-  whatsappNumber: "9779763647950", 
-  
+  whatsappNumber: "9779763647950",
+
   // YouTube Configuration
   // PLACEHOLDER: Replace with actual YouTube channel URL
   youtubeChannelUrl: "https://youtube.com/@bipintechhub",
-  
+
   // Email & Contact Details
   // PLACEHOLDER: Replace with actual contact email
   email: "bipintech@icloud.com",
   location: "Lumbini Province-Dang, Nepal ",
   workingHours: "Sunday – Saturday: 7:00 AM – 9:00 PM (NPT)",
-  
+
   // Payment Details (Manual Verification)
   payment: {
     esewaQrPath: "/images/esewa-qr.png",
@@ -37,7 +37,7 @@ export const siteConfig = {
     merchantName: "BIPIN TECH HUB",
     supportedMethods: ["eSewa QR", "ConnectIPS QR"],
   },
-  
+
   // Social Links
   links: {
     whatsapp: "https://wa.me/9779763647950",
@@ -56,7 +56,7 @@ export function getWhatsAppUrl(message?: string): string {
 export function getServiceOrderWhatsAppUrl(serviceTitle: string, customerName?: string, customNote?: string): string {
   const nameLine = customerName && customerName.trim() ? `Customer Name: ${customerName.trim()}\n` : "";
   const noteLine = customNote && customNote.trim() ? `Inquiry / Requirement: ${customNote.trim()}\n` : "";
-  
+
   const text = `Hello BIPIN TECH HUB,
 
 I want to order the following service:
