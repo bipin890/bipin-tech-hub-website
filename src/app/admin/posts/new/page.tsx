@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, ImagePlus, Save, Send } from "lucide-react";
@@ -14,7 +15,7 @@ function makeSlug(value: string) {
     .replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 
-export default function BlogEditorPage() {
+function BlogEditorContent() {
   const router = useRouter();
   const params = useSearchParams();
   const postId = params.get("id");
@@ -116,4 +117,8 @@ export default function BlogEditorPage() {
       </div>
     </div>
   </main>;
+}
+
+export default function BlogEditorPage() {
+  return <Suspense fallback={<main className="min-h-[60vh] p-12 text-center text-slate-500">Loading editor…</main>}><BlogEditorContent /></Suspense>;
 }
