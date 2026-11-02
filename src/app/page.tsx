@@ -9,6 +9,7 @@ import { YouTubeSection } from "@/components/YouTubeSection";
 import { PaymentSection } from "@/components/PaymentSection";
 import { FAQSection } from "@/components/FAQSection";
 import { ContactSection } from "@/components/ContactSection";
+import { LatestBlogSection } from "@/components/LatestBlogSection";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
       <AboutSection />
       <OrderStatusSection />
       <YouTubeSection />
+      <LatestBlogSection />
       <PaymentSection />
       <FAQSection />
       <ContactSection />
