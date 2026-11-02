@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowLeft, CalendarDays, Clock3 } from "lucide-react";
@@ -11,7 +12,7 @@ function estimateMinutes(content: string) {
   return Math.max(1, Math.ceil(content.trim().split(/\s+/).length / 200));
 }
 
-export default function BlogPostPage() {
+function BlogPostContent() {
   const params = useSearchParams();
   const slug = params.get("slug");
   const [post, setPost] = useState<BlogPost | null>(null);
@@ -82,4 +83,8 @@ export default function BlogPostPage() {
       </article>
     </main>
   );
+}
+
+export default function BlogPostPage() {
+  return <Suspense fallback={<main className="min-h-[60vh] p-12 text-center text-slate-500">Loading article…</main>}><BlogPostContent /></Suspense>;
 }
