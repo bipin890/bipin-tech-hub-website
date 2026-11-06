@@ -2,6 +2,9 @@ import { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 import { servicesData } from "@/data/services";
 
+// Required for Next.js static export (GitHub Pages).
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
   const currentDate = new Date();
