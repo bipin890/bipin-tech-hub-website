@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ServiceItem } from "@/types";
 import { useLanguage } from "@/context/LanguageContext";
 import { ServiceIcon } from "@/components/ServiceIcon";
@@ -35,6 +36,16 @@ export function ServiceDetailClient({ service }: { service: ServiceItem }) {
   const processSteps = tList(service.processSteps);
 
   const directWhatsAppUrl = getServiceOrderWhatsAppUrl(title);
+  const serviceImages: Record<string, string> = {
+    "police-clearance-report": "/police-clearance.jpg",
+    "europass-cv-cover-letter": "/europass-cv.jpg",
+    "all-online-forms": "/online-forms.jpg",
+    "driving-license-services": "/driving-license.jpg",
+    "loksewa-online-forms": "/loksewa-online-forms.jpg",
+    "personal-portfolio-website": "/personal-portfolio-website.jpg",
+    "c-programming-guide": "/c-programming-guide.jpg",
+  };
+  const serviceImage = serviceImages[service.id];
 
   return (
     <div className="py-10 sm:py-16 bg-white">
@@ -51,8 +62,20 @@ export function ServiceDetailClient({ service }: { service: ServiceItem }) {
         </nav>
 
         {/* Hero Header for Service */}
-        <div className="bg-slate-50/80 rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-soft mb-12">
-          <div className="flex flex-col sm:flex-row items-start justify-between gap-6">
+        <div className="bg-slate-50/80 rounded-3xl overflow-hidden border border-slate-200/90 shadow-soft mb-12">
+          {serviceImage && (
+            <div className="relative w-full aspect-[16/7] sm:aspect-[16/6] bg-slate-100">
+              <Image
+                src={serviceImage}
+                alt={title}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 1024px"
+                className="object-cover"
+              />
+            </div>
+          )}
+          <div className="p-6 sm:p-10 flex flex-col sm:flex-row items-start justify-between gap-6">
             <div className="space-y-4 max-w-2xl">
               <div className="flex items-center gap-3">
                 <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-sm">
