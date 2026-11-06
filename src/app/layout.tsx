@@ -40,11 +40,12 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  // These assets are stored in public/images/, so URLs must include /images/.
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.png", type: "image/png" },
-      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+      { url: "/images/favicon.ico" },
+      { url: "/images/favicon.png", type: "image/png" },
+      { url: "/images/icon.png", sizes: "192x192", type: "image/png" },
     ],
     apple: [
       { url: "/apple-icon.png", sizes: "192x192", type: "image/png" },
@@ -61,7 +62,7 @@ export const metadata: Metadata = {
       "Online Forms, Documentation, Career Support & Website Development — All in One Place in Nepal.",
     images: [
       {
-        url: "/icon.png",
+        url: "/images/icon.png",
         width: 192,
         height: 192,
         alt: "BIPIN TECH HUB Digital Services",
@@ -73,7 +74,7 @@ export const metadata: Metadata = {
     title: "BIPIN TECH HUB — Digital Services in Nepal",
     description:
       "Professional online forms, Europass CV, PCC consular stamp, and website development in Nepal.",
-    images: ["/icon.png"],
+    images: ["/images/icon.png"],
   },
   robots: {
     index: true,
@@ -102,7 +103,7 @@ export default function RootLayout({
     name: siteConfig.name,
     alternateName: "BTH",
     url: siteConfig.url,
-    logo: `${siteConfig.url}/icon.png`,
+    logo: `${siteConfig.url}/images/icon.png`,
     description: siteConfig.description,
     address: {
       "@type": "PostalAddress",
