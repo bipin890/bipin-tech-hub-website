@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ServiceItem } from "@/types";
 import { useLanguage } from "@/context/LanguageContext";
@@ -15,9 +16,31 @@ interface ServiceCardProps {
 export function ServiceCard({ service, onOrderClick }: ServiceCardProps) {
   const { language, t } = useLanguage();
 
+  const serviceImages: Record<string, string> = {
+    "police-clearance-report": "/police-clearance.jpg",
+    "europass-cv-cover-letter": "/europass-cv.jpg",
+    "all-online-forms": "/online-forms.jpg",
+    "driving-license-services": "/driving-license.jpg",
+    "loksewa-online-forms": "/loksewa-online-forms.jpg",
+    "personal-portfolio-website": "/personal-portfolio-website.jpg",
+    "c-programming-guide": "/c-programming-guide.jpg",
+  };
+  const serviceImage = serviceImages[service.id];
+
   return (
-    <div className="group relative bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 shadow-soft hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
-      <div>
+    <div className="group relative bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-soft hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+      {serviceImage && (
+        <div className="relative w-full aspect-[16/9] bg-slate-100 overflow-hidden">
+          <Image
+            src={serviceImage}
+            alt={t(service.title)}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      )}
+      <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
         {/* Top: Icon + Price Tag */}
         <div className="flex items-start justify-between gap-3 mb-5">
           <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
