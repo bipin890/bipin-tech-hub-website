@@ -1,6 +1,9 @@
 import { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 
+// Required for Next.js static export (GitHub Pages).
+export const dynamic = "force-static";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
